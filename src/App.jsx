@@ -51,7 +51,7 @@ const App = () => {
 
     return (
         <>
-            {details && (
+            {/* {details && (
                 <div
                     style={{
                         background: "white",
@@ -90,7 +90,7 @@ const App = () => {
                 >
                     Remove marker
                 </button>
-            </div>
+            </div> */}
             <ReactGlobe
                 height="100vh"
                 markers={markers}
