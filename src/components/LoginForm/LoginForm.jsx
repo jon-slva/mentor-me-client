@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
+import './LoginForm.scss'
 
 const LoginForm = () => {
     const [success, setSuccess] = useState(false);
@@ -34,17 +36,37 @@ const LoginForm = () => {
     }
 
     return (
-        <div className='login-container'>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Username
-                    <input type="text" name="alias" onChange={handleChange} />
-                </label>
-                <label>
-                    Password
-                    <input type="password" name="password" onChange={handleChange} />
-                </label>
-                <button type="submit">Sign Up</button>
+        <div className='form-box'>
+            <form id="loginForm" onSubmit={handleSubmit}>
+                <div className="form">
+                    <h3 className="form__header">Please Log In</h3>
+                    <label className='form__input-header'>
+                        Username
+                    </label>
+                        <input type="text" 
+                        name="alias" 
+                        id="username" 
+                        className="form__name-input"
+                        placeholder="Enter your username" 
+                        onChange={handleChange} />
+                    <label className='form__input-header'>
+                        Password
+                    </label>
+                        <input type="password" 
+                        name="password" 
+                        id="password" 
+                        className="form__name-input"
+                        placeholder="Enter your password" 
+                        onChange={handleChange} />
+                    <button 
+                        type="submit"
+                        className="form__submit-btn">
+                            Log in
+                    </button>
+                    <Link to={"/signup"}>
+                    <p className="form__subtext">----- Sign Up -----</p> 
+                    </Link>  
+                </div>
             </form>
 
         </div>

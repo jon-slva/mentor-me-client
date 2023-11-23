@@ -1,6 +1,8 @@
+@import '../../styles/partials/variables';
+
 .header {
     height: 60px;
-    background-color: #005271;
+    background-color: $earth-blue;
     width: 100%;
     pointer-events: auto;
     display: flex;
@@ -8,7 +10,7 @@
     align-items: center;
 
     &__logo {
-        color: white;
+        color: $white;
         font-size: 38px;
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         margin-bottom: 4px;

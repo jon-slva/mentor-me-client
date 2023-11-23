@@ -1,23 +1,25 @@
-@import './fonts';
+// @import './fonts';
 
 // Colors
-$brainflix-black: #323232;
-$brainflix-blue: #0095FF;
+$earth-blue: #005271;
+$earth-green: #048785;
+$light-color-1: #8cc8d2;
+$light-color-2: #ccdedc;
 $silver: #afafaf;
-$brain-white: #fff;
-$brainflix-darkblack: #000;
-$brainflix-darkblue: #0065ad;
+$white: #fff;
+$light-black: #323232;
+$darkblack: #000;
 $mercury: #e1e1e1;
 $alabaster: #fafafa;
 
+
 // Breakpoints
-$tablet-breakpoint: 48rem;
-$desktop-breakpoint: 80rem;
+$tablet-breakpoint: 768px;
+$desktop-breakpoint: 1280px;
 
 // Images
-$publish-img: url(../../assets/images/publish.svg);
-$upload-img: url(../../assets/images/upload.svg);
-$comment-img: url(../../assets/images/add_comment.svg);
+// $publish-img: url(../../assets/images/publish.svg);
+// $upload-img: url(../../assets/images/upload.svg);
+// $comment-img: url(../../assets/images/add_comment.svg);
 
 // Fonts
-$avenir: 'Avenir Next', Arial, sans-serif;

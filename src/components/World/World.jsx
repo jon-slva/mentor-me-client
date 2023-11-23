@@ -4,16 +4,12 @@ import ReactGlobe from "react-globe";
 import map from '../../assets/2_no_clouds_4k.jpg'
 import bump from '../../assets/elev_bump_4k.jpg'
 import bgImage from '../../assets/galaxy_starfield.png'
-const { useEffect, useRef, useState } = React;
 // import markersJson from '../../data/sample-points copy.json';
 // import markers from '../../data/markers.jsx';
-
-
 import defaultMarkers from "../../markers.js";
-
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
-
+const { useEffect, useRef, useState } = React;
 
 
 function markerTooltipRenderer(marker) {

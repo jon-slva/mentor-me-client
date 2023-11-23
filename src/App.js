@@ -1,13 +1,12 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useState, useRef } from "react";
-import "./App.scss";
 import World from './components/World/World';
 import Header from './components/Header/Header';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
-
+import './App.scss'
 
 
 const App = () => {

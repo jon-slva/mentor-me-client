@@ -1,6 +1,7 @@
-.loginPage {
-    width: 400px;
-    height: 400px;
-    background-color: aliceblue;
+.form-page {
+    width: 100%;
+    height: 100%;
     pointer-events: auto;
+    display: flex;
+    justify-content: center;
 }

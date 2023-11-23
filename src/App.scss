@@ -1,16 +1,7 @@
-@use './styles/partials/reset' as *;
-// @use '../../styles/partials/fonts' as *;
-// @import '../../styles/partials/variables';
-// @import '../../styles/partials/mixins';
+@import './styles/partials/reset';
+@import './styles/partials/global';
+@import './styles/partials/variables';
 
-
-// *,
-// *:before,
-// *:after {
-//     box-sizing: border-box;
-//     margin: 0;
-//     padding: 0;
-// }
 
 #root {
     overflow: hidden;
