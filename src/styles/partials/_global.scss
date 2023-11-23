@@ -1,0 +1,10 @@
+@import './variables';
+@import './fonts';
+@import './mixins';
+
+
+.active {
+    color: $brain-white;
+    border-bottom: 0.25rem $brain-white solid;
+}    
+

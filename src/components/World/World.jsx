@@ -56,7 +56,7 @@ const World = ({ setMarkers, setEvent, setDetails, details, markers }) => {
 
     return (
         <>
-            {details && (
+            {/* {details && (
                 <div
                     style={{
                         background: "white",
@@ -95,7 +95,7 @@ const World = ({ setMarkers, setEvent, setDetails, details, markers }) => {
                 >
                     Remove marker
                 </button>
-            </div>
+            </div> */}
             <ReactGlobe
                 height="100vh"
                 markers={markers}

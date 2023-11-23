@@ -1,11 +1,29 @@
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+@use './styles/partials/reset' as *;
+// @use '../../styles/partials/fonts' as *;
+// @import '../../styles/partials/variables';
+// @import '../../styles/partials/mixins';
+
+
+// *,
+// *:before,
+// *:after {
+//     box-sizing: border-box;
+//     margin: 0;
+//     padding: 0;
+// }
 
 #root {
     overflow: hidden;
+}
+
+.appContainer {
+    position: relative;
+    overflow: hidden;
+}
+
+.pageContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
 }

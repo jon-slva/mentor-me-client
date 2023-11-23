@@ -1,4 +1,16 @@
 .header {
-    height: 120px;
-    background-color: grey;
+    height: 60px;
+    background-color: #005271;
+    width: 100%;
+    pointer-events: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__logo {
+        color: white;
+        font-size: 38px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        margin-bottom: 4px;
+    }
 }
