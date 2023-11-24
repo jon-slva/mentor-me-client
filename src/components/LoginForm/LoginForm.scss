@@ -10,7 +10,7 @@
     border-bottom: solid $mercury;
     gap: 1rem;
     background-color: $white;
-    margin-top: 280px;
+    margin-top: 15%;
     border-radius: 0.25rem;
     padding: 0 16px;
 }
@@ -28,7 +28,7 @@
     padding: 0 16px;
     display: flex;
     flex-direction: row;
-    margin-top: 5%;
+    margin-top: 4%;
 }
 
 #signupForm {
@@ -99,7 +99,7 @@
         }
 
         @include tablet {
-            height: 3rem;
+            height: 36px;
             padding: 1rem;
         }
     }
