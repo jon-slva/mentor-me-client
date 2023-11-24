@@ -1,71 +1,14 @@
-[
-    {
-        "id": 1984,
-        "Name": "Mentor 1",
-        "Location": "Location 1",
-        "Lat": "",
-        "Long": "",
-        "Contact": {
-            "Email": "",
-            "Phone": "",
-            "Social": {
-                "Ig": "",
-                "Facebook": "",
-                "Soundcloud": "",
-                "LinkedIn": ""
-            },
-            "Text": {
-                "Whatsapp": "",
-                "Phone": ""
-            }
-        },
-        "Pic": "",
-        "Portfolio": "",
-        "Links": [
-            "Link 1",
-            "Link 2",
-            "Link 3"
-        ],
-        "Subjects": [
-            "Guitar",
-            "Oil painting",
-            "Micro electronics"
-        ],
-        "Reviews": [
-            {
-                "User": "",
-                "Subject": "",
-                "Comment": "",
-                "Rating": ""
-            },
-            {
-                "User": "",
-                "Subject": "",
-                "Comment": "",
-                "Rating": ""
-            }
-        ],
-        "conversations": [
-            {
-                "conversation_id": 101,
-                "mentee_id": 7256,
-                "messages": [
-                    {
-                        "message_id": 1001,
-                        "sender_type": "mentor",
-                        "sender_id": 1984,
-                        "message_text": "Hello mentee!",
-                        "timestamp": "2023-01-01T12:00:00"
-                    },
-                    {
-                        "message_id": 1002,
-                        "sender_type": "mentee",
-                        "sender_id": 7256,
-                        "message_text": "Hi mentor!",
-                        "timestamp": "2023-01-01T12:05:00"
-                    }
-                ]
-            }
-        ]
-    }
-]
+{
+    "first_name": "Jonathan",
+    "last_name": "Silva",
+    "phone": "16313274452",
+    "email": "jonathan.silva167@gmail.com",
+    "street": "8 Bunker Lane",
+    "city": "Middle Island",
+    "state": "NY",
+    "zip": "11953",
+    "country": "United States",
+    "alias": "ghj",
+    "bio": "kl",
+    "is_mentor": true
+}

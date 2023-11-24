@@ -9,34 +9,36 @@ const SignupForm = () => {
 	const [error, setError] = useState(null);
 	const [formData, setFormData] = useState({});
 
-	const handleChange = async (e) => {
-		// setFormData(e)
-		console.log(e)
-	}
+	const handleChange = (e) => {
+		const { name, value, type, checked } = e.target;
+
+		setFormData((prevFormData) => ({
+			...prevFormData,
+			[name]:
+				type === 'radio'
+					? value === 'true'
+					: type === 'checkbox'
+						? checked
+						: value.trim() === '' && !e.target.required
+							? null
+							: value,
+		}));
+	};
+
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		// 	try {
-		// 		// api post goes here
-		// 		let userInput = {
-		// 			email: e.target.email.value,
-		// 			password: e.target.password.value,
-		// 			first_name: e.target.first_name.value,
-		// 			last_name: e.target.last_name.value,
-		// 			phone: e.target.phone.value,
-		// 			phone: e.target.phone.value,
-		// 		}
+		try {
+			const res = await axios.post("http://localhost:8080/api/users/signup", formData);
 
-		// 		await axios.post();
-		// 		setSuccess(true);
-		// 		setError("");
-		// 		event.target.reset()
-
-		// 	} catch (error) {
-		// 		setSuccess(false);
-		// 		setError(error.response.data)
-		// 	}
+			setSuccess(true);
+			setError("");
+			alert("Signup successful!");
+		} catch (error) {
+			setSuccess(false);
+			setError(error.response.data)
+		}
 	};
 
 	return (
@@ -57,6 +59,7 @@ const SignupForm = () => {
 								className="form__name-input"
 								id="first_name"
 								placeholder="Enter your first name"
+								required
 							/>
 						</label>
 						<label className='form__input-header'>
@@ -68,10 +71,11 @@ const SignupForm = () => {
 								className="form__name-input"
 								id="last_name"
 								placeholder="Enter your last name"
+								required
 							/>
 						</label>
 						<label className='form__input-header'>
-							Username
+							Username/Alias
 							<input type="text"
 								name="alias"
 								value={formData.alias}
@@ -79,6 +83,7 @@ const SignupForm = () => {
 								className="form__name-input"
 								id="alias"
 								placeholder="Choose a username"
+								required
 							/>
 						</label>
 						<label className='form__input-header'>
@@ -90,6 +95,7 @@ const SignupForm = () => {
 								className="form__name-input"
 								id="phone"
 								placeholder="Enter your phone number"
+								required
 							/>
 						</label>
 						<label className='form__input-header'>
@@ -101,6 +107,7 @@ const SignupForm = () => {
 								className="form__name-input"
 								id="email"
 								placeholder="Enter your email address"
+								required
 							/>
 						</label>
 					</div>
@@ -118,6 +125,7 @@ const SignupForm = () => {
 								className="form__name-input"
 								id="street"
 								placeholder="Enter your street address"
+								required
 							/>
 						</label>
 						<label className='form__input-header'>
@@ -129,6 +137,7 @@ const SignupForm = () => {
 								className="form__name-input"
 								id="city"
 								placeholder="Enter your city"
+								required
 							/>
 						</label>
 						<label className='form__input-header'>
@@ -140,6 +149,7 @@ const SignupForm = () => {
 								className="form__name-input"
 								id="state"
 								placeholder="Enter your state"
+								required
 							/>
 						</label>
 						<label className='form__input-header'>
@@ -151,6 +161,7 @@ const SignupForm = () => {
 								className="form__name-input"
 								id="zip"
 								placeholder="Enter your ZIP code"
+								required
 							/>
 						</label>
 						<label className='form__input-header'>
@@ -162,6 +173,7 @@ const SignupForm = () => {
 								className="form__name-input"
 								id="country"
 								placeholder="Enter your country"
+								required
 							/>
 						</label>
 					</div>
@@ -269,11 +281,34 @@ const SignupForm = () => {
 								className="form__name-input"
 								id="bio"
 								placeholder="Tell us about yourself..."
-								rows={4} // Specify the number of rows without quotes
+								// rows={4} // Specify the number of rows without quotes
+								required
+							/>
+						</label>
+						<label className='form__input-header'>
+							Password
+							<input
+								type='password'
+								name="password"
+								value={formData.password}
+								onChange={handleChange}
+								className="form__name-input"
+								id="password"
+								placeholder="Please choose a Password"
+								// rows={4} // Specify the number of rows without quotes
+								required
+							/>
+						</label>
+						<label>
+							Can Text:
+							<input
+								type="checkbox"
+								name="can_text"
+								checked={formData.can_text || false} // Assuming formData is your state
+								onChange={handleChange}
 							/>
 						</label>
 					</div>
-
 				</section>
 
 
@@ -283,10 +318,31 @@ const SignupForm = () => {
 					<label className='form__input-header'>
 						User Role:
 					</label>
-					<select name="userRole" value={formData.userRole} onChange={handleChange}>
-						<option value="mentor">Mentor</option>
-						<option value="mentee">Mentee</option>
-					</select>
+					<div className="radio-buttons">
+						<label>
+							<input
+								type="radio"
+								name="is_mentor"
+								value={true}
+								checked={formData.is_mentor === true}
+								onChange={handleChange}
+								required
+							/>
+							Mentor
+						</label>
+						<label>
+							<input
+								type="radio"
+								name="is_mentor"
+								value={false}
+								checked={formData.is_mentor === false}
+								onChange={handleChange}
+								required
+							/>
+							Mentee
+						</label>
+					</div>
+
 
 					<button type="submit" className='form__submit-btn'>Sign Up</button>
 					<p>Already have an account? <Link to="/LOGIN">Log in</Link></p>
