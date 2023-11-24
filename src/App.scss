@@ -1,6 +1,6 @@
-@import './styles/partials/reset';
-@import './styles/partials/global';
-@import './styles/partials/variables';
+@use './styles/partials/reset' as *;
+@use './styles/partials/global' as *;
+@use './styles/partials/variables' as*;
 
 
 #root {
