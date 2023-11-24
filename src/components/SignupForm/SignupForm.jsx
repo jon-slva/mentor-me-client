@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { Link, useNavigate } from "react-router-dom";
+
 import axios from 'axios';
 
 
@@ -287,6 +289,8 @@ const SignupForm = () => {
 					</select>
 
 					<button type="submit" className='form__submit-btn'>Sign Up</button>
+					<p>Already have an account? <Link to="/LOGIN">Log in</Link></p>
+
 				</div>
 
 			</form >

@@ -10,7 +10,7 @@ const Header = () => {
             <Link to="/">
                 <h2 className="header__logo">MentorMe</h2>
             </Link>
-            <Link to="/">Account</Link>
+            <Link to="/my-account">Account</Link>
         </header>
     )
 }

@@ -8,6 +8,7 @@ import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import './App.scss'
 import SignUp from './pages/SignUp/SignUp';
+import MyAccount from './pages/MyAccount/MyAccount';
 
 
 const App = () => {
@@ -25,7 +26,7 @@ const App = () => {
                         {/* <Route path="/searchResults"></Route> */}
                         <Route path="/login" element={<Login />} />
                         <Route path="/signup" element={<SignUp />} />
-                        <Route path="/my-account" />
+                        <Route path="/my-account" element={<MyAccount />} />
                         <Route path="/terms-conditions" />
                         <Route path="/privacy-policy" />
                         <Route path="/*" notFoundPage={<NotFoundPage />} />
