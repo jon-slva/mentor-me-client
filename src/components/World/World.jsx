@@ -27,8 +27,6 @@ const World = ({ setMarkers, setEvent, setDetails, details, markers }) => {
     }));
 
 
-
-
     function onClickMarker(marker, markerObject, event) {
         setEvent({
             type: "CLICK",
@@ -94,14 +92,15 @@ const World = ({ setMarkers, setEvent, setDetails, details, markers }) => {
             </div> */}
             <ReactGlobe
                 height="100vh"
+                globeTexture={map}
+                globeBackgroundTexture={bgImage}
+                globeCloudsTexture={clouds}
                 markers={markers}
                 options={options}
-                width="100vw"
+                width="100%"
                 onClickMarker={onClickMarker}
                 onDefocus={onDefocus}
-                globeTexture={map}
-                globeCloudsTexture={clouds}
-                globeBackgroundTexture={bgImage}
+
             />
         </>
     )

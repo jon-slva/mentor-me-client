@@ -9,12 +9,16 @@ import Login from './pages/Login/Login';
 import './App.scss'
 import SignUp from './pages/SignUp/SignUp';
 import MyAccount from './pages/MyAccount/MyAccount';
+import SearchResults from './pages/SearchResults/SearchResults';
+
 
 
 const App = () => {
     const [markers, setMarkers] = useState([]);
     const [event, setEvent] = useState(null);
     const [details, setDetails] = useState(null);
+    console.log(markers);
+
 
     return (
         <div className='appContainer'>
@@ -22,8 +26,8 @@ const App = () => {
                 <Header />
                 <div className='pageContainer'>
                     <Routes>
-                        <Route path="/" element={<Home />} />
-                        {/* <Route path="/searchResults"></Route> */}
+                        <Route path="/" element={<Home setMarkers={setMarkers} markers={markers} />} />
+                        <Route path="/search" element={<SearchResults setMarkers={setMarkers} markers={markers} />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/signup" element={<SignUp />} />
                         <Route path="/my-account" element={<MyAccount />} />
