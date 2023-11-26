@@ -6,7 +6,7 @@ import dropShadow from '../../assets/Asset 1.png';
 // import { useNavigate, useLocation } from 'react-router-dom';
 
 
-const SearchBar = ({ setMarkers, setEvent, setDetails, markers }) => {
+const SearchBar = ({ setMarkers, setEvent, setDetails, markers, setResults }) => {
     const [query, setQuery] = useState('');
     const navigate = useNavigate();
 
@@ -22,6 +22,7 @@ const SearchBar = ({ setMarkers, setEvent, setDetails, markers }) => {
 
                 const globeMarkers = mentors.map((mentor) => {
                     return {
+                        name: `${mentor.first_name} ${mentor.last_name}`,
                         id: mentor.id,
                         city: mentor.city, // You may want to use a combination of city and country for a more accurate representation
                         color: 'blue', // or any other color based on your preference
@@ -31,7 +32,8 @@ const SearchBar = ({ setMarkers, setEvent, setDetails, markers }) => {
                 });
 
                 setMarkers(globeMarkers)
-                console.log(markers);
+                setResults(response.data)
+                // console.log(response.data);
 
             } catch (error) {
                 console.error('Error fetching data:', error.message);

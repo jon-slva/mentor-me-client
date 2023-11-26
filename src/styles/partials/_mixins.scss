@@ -2,15 +2,15 @@
 // @import './fonts';
 
 // Media Queries
-@mixin tablet { 
+@mixin tablet {
     @media (min-width: $tablet-breakpoint) {
-        @content;    
+        @content;
     }
 }
 
-@mixin desktop { 
+@mixin desktop {
     @media (min-width: $desktop-breakpoint) {
-        @content;    
+        @content;
     }
 }
 
@@ -24,7 +24,7 @@
 }
 
 @mixin button-styling() {
-    background-color: $light-black;
+    background-color: $earth-green;
     text-align: center;
     width: 100%;
     height: 2.5rem;
@@ -36,24 +36,55 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 1rem;
+
     &:hover {
         background-color: $darkblack;
     }
+
     @include tablet {
         width: 9.375rem;
     }
 }
 
+// Subject Pills
+@mixin subject-pill {
+    padding: 4px 12px;
+    font-size: 14px;
+    background-color: $earth-green;
+    width: fit-content;
+    color: $white;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+}
+
+// Interest Pills
+@mixin interest-pill {
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 14px;
+    background-color: $earth-blue;
+    width: fit-content;
+    color: $white;
+    border-radius: 20px;
+    margin-right: 8px;
+    margin-bottom: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+}
+
+
+
 // Fonts
 @mixin font-reg {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 400;
-} 
+}
 
 @mixin font-bold {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 700;
-} 
+}
 
 
 // Text Styling -- TABLET/DESKTOP
@@ -182,13 +213,14 @@
     border-radius: 0.25rem;
     border: 0.0625rem $mercury solid;
     width: 100%;
+
     &:focus-visible {
         border: 0.125rem $brainflix-blue solid;
     }
+
     @include tablet {
         padding-left: 1rem;
         @include p-tablet__desk;
         height: 2.8125rem;
     }
 }
-

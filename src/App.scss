@@ -9,7 +9,11 @@
 
 .appContainer {
     position: relative;
-    overflow: hidden;
+
+    &:last-child {
+        height: 100dvh;
+        // overflow: hidden !important;
+    }
 }
 
 .pageContainer {

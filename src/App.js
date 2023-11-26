@@ -17,7 +17,6 @@ const App = () => {
     const [markers, setMarkers] = useState([]);
     const [event, setEvent] = useState(null);
     const [details, setDetails] = useState(null);
-    console.log(markers);
 
 
     return (
@@ -30,7 +29,8 @@ const App = () => {
                         <Route path="/search" element={<SearchResults setMarkers={setMarkers} markers={markers} />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/signup" element={<SignUp />} />
-                        <Route path="/my-account" element={<MyAccount />} />
+                        {/* <Route path="/my-account" element={<MyAccount />} /> */}
+                        <Route path="/mentor/:id" element={<MyAccount />} />
                         <Route path="/terms-conditions" />
                         <Route path="/privacy-policy" />
                         <Route path="/*" notFoundPage={<NotFoundPage />} />

@@ -9,11 +9,13 @@ import bgImage from '../../assets/galaxy_starfield.png'
 import defaultMarkers from "../../markers.js";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
+import ReactTooltip from 'react-tooltip';
 const { useEffect, useRef, useState } = React;
 
 
 function markerTooltipRenderer(marker) {
-    return `CITY: ${marker.city} (Value: ${marker.value})`;
+    console.log(marker)
+    return `${marker.name} ${marker.city}`;
 }
 
 const options = {
@@ -50,6 +52,7 @@ const World = ({ setMarkers, setEvent, setDetails, details, markers }) => {
 
     return (
         <>
+
             {/* {details && (
                 <div
                     style={{
@@ -67,8 +70,8 @@ const World = ({ setMarkers, setEvent, setDetails, details, markers }) => {
                         {JSON.stringify(event.pointerEventPosition)})
                     </p>
                 </div>
-            )}
-            <div style={{ padding: 32 }}>
+            )} */}
+            {/* <div style={{ padding: 32 }}>
                 <button onClick={() => setMarkers(randomMarkers)}>
                     Randomize markers
                 </button>
