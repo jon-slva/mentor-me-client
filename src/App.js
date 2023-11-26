@@ -10,6 +10,7 @@ import './App.scss'
 import SignUp from './pages/SignUp/SignUp';
 import MyAccount from './pages/MyAccount/MyAccount';
 import SearchResults from './pages/SearchResults/SearchResults';
+import ConversationPage from './pages/ConversationPage/ConversationPage';
 
 
 
@@ -29,8 +30,8 @@ const App = () => {
                         <Route path="/search" element={<SearchResults setMarkers={setMarkers} markers={markers} />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/signup" element={<SignUp />} />
-                        {/* <Route path="/my-account" element={<MyAccount />} /> */}
-                        <Route path="/mentor/:id" element={<MyAccount />} />
+                        <Route path="/my-account" element={<MyAccount />} />
+                        <Route path="/chat/:chatId" element={<ConversationPage />} />
                         <Route path="/terms-conditions" />
                         <Route path="/privacy-policy" />
                         <Route path="/*" notFoundPage={<NotFoundPage />} />

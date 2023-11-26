@@ -179,7 +179,7 @@ const SearchResults = ({ setMarkers, markers }) => {
                         </a>
                     )}
 
-                    <Link to="/mentor/:id" className="contact-button">
+                    <Link to="/chat/:chatId" className="contact-button">
                         <button type="submit" className="actn-button__link">
                             Contact
                         </button>
