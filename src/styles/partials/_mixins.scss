@@ -30,15 +30,17 @@
     height: 2.5rem;
     // padding: 0 2rem;
     border-radius: 0.25rem;
+    color: $white;
     font-size: 0.875rem;
     @include font-bold();
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 1rem;
+    margin-top: 1rem;
 
     &:hover {
-        background-color: $darkblack;
+        background-color: $light-color-1;
     }
 
     @include tablet {
@@ -77,12 +79,12 @@
 
 // Fonts
 @mixin font-reg {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Raleway-Reg', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 400;
 }
 
 @mixin font-bold {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Raleway-Bold', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 700;
 }
 

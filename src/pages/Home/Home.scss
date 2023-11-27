@@ -18,6 +18,7 @@
         position: relative;
         z-index: 1;
         letter-spacing: -0.3rem;
+        font-family: 'Philosopher-Bold';
     }
 
     &__h2 {
@@ -50,7 +51,7 @@
     &__dropshadow-h2 {
         position: absolute;
         z-index: 0;
-        top: 190px;
+        top: 185px;
         width: 760px;
         height: 60px;
         opacity: 0.3;
@@ -61,7 +62,7 @@
         z-index: 0;
         top: 264px;
         width: 480px;
-        height: 80px;
+        height: 50px;
         opacity: 0.4;
     }
 }

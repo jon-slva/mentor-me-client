@@ -20,3 +20,22 @@ $desktop-breakpoint: 1280px;
 // Images
 
 // Fonts
+@font-face {
+    font-family: 'Philosopher-Reg';
+    src: url('../../assets/fonts/Philosopher/Philosopher-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Philosopher-Bold';
+    src: url('../../assets/fonts/Philosopher/Philosopher-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Raleway-Reg';
+    src: url('../../assets/fonts/Raleway/static/Raleway-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Raleway-Bold';
+    src: url('../../assets/fonts/Raleway/static/Raleway-Bold.ttf') format('truetype');
+}

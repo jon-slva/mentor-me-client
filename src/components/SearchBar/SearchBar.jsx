@@ -24,16 +24,15 @@ const SearchBar = ({ setMarkers, setEvent, setDetails, markers, setResults }) =>
                     return {
                         name: `${mentor.first_name} ${mentor.last_name}`,
                         id: mentor.id,
-                        city: mentor.city, // You may want to use a combination of city and country for a more accurate representation
-                        color: 'blue', // or any other color based on your preference
-                        coordinates: [parseFloat(mentor.lat), parseFloat(mentor.long)], // Convert strings to numbers
-                        value: mentor.value || 0, // Assuming mentor has a 'value' property
+                        city: mentor.city,
+                        color: 'blue',
+                        coordinates: [parseFloat(mentor.lat), parseFloat(mentor.long)],
+                        value: mentor.value || 0,
                     };
                 });
 
                 setMarkers(globeMarkers)
                 setResults(response.data)
-                // console.log(response.data);
 
             } catch (error) {
                 console.error('Error fetching data:', error.message);
@@ -43,14 +42,12 @@ const SearchBar = ({ setMarkers, setEvent, setDetails, markers, setResults }) =>
         const handleKeyPress = (event) => {
             if (event.key === 'Enter') {
                 fetchData();
-                // Update the URL without refreshing the page
                 // navigate(`/search?s=${encodeURIComponent(query)}`);
             }
         };
 
         window.addEventListener('keydown', handleKeyPress);
 
-        // Cleanup the event listener when the component unmounts
         return () => {
             window.removeEventListener('keydown', handleKeyPress);
         };

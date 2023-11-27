@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import './SearchResults.scss';
@@ -16,7 +16,6 @@ const SearchResults = ({ setMarkers, markers }) => {
     const detailsCardRef = useRef(null);
 
     useEffect(() => {
-        // Close details card when clicking outside of it
         const handleClickOutside = (event) => {
             if (detailsCardRef.current && !detailsCardRef.current.contains(event.target)) {
                 setSelectedMentor(null);
@@ -36,13 +35,8 @@ const SearchResults = ({ setMarkers, markers }) => {
     }, [results]);
 
     const handleMentorClick = (mentor) => {
-        // Set the selected mentor when an article is clicked
         setSelectedMentor(mentor);
     };
-
-    if (!results) {
-        // return null;
-    }
 
     return (
         <main className="page-container">
@@ -83,7 +77,6 @@ const SearchResults = ({ setMarkers, markers }) => {
                 </section>
             )}
 
-            {/* Display the details card if a mentor is selected */}
             {selectedMentor && (
                 <section className="details-card" ref={detailsCardRef}>
                     <div className="details-card__top">
@@ -103,8 +96,8 @@ const SearchResults = ({ setMarkers, markers }) => {
                             <p className="details-card__rating">
                                 4 / 5
                             </p>
-                            <p>City: {selectedMentor.city}</p>
-                            <p>Country: {selectedMentor.country}</p>
+                            <p>{selectedMentor.city}</p>
+                            <p>{selectedMentor.country}</p>
                         </div>
                     </div>
 
@@ -131,7 +124,6 @@ const SearchResults = ({ setMarkers, markers }) => {
                         </p>
                     </div>
 
-                    {/* insert links here */}
                     <div className="details-card__links">
                         {selectedMentor.social_ig && (
                             <a href={`https://instagram.com/${selectedMentor.social_ig}`} target="_blank" rel="noopener noreferrer">
@@ -179,7 +171,7 @@ const SearchResults = ({ setMarkers, markers }) => {
                         </a>
                     )}
 
-                    <Link to="/chat/:chatId" className="contact-button">
+                    <Link to={`/mentor/${selectedMentor.mentor_id}`} className="contact-button">
                         <button type="submit" className="actn-button__link">
                             Contact
                         </button>

@@ -31,7 +31,8 @@ const App = () => {
                         <Route path="/login" element={<Login />} />
                         <Route path="/signup" element={<SignUp />} />
                         <Route path="/my-account" element={<MyAccount />} />
-                        <Route path="/chat/:chatId" element={<ConversationPage />} />
+                        {/* <Route path="/chat/:chatId" element={<ConversationPage />} /> */}
+                        <Route path="/mentor/:mentorId" element={<ConversationPage />} />
                         <Route path="/terms-conditions" />
                         <Route path="/privacy-policy" />
                         <Route path="/*" notFoundPage={<NotFoundPage />} />

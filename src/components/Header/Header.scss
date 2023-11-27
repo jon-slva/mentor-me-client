@@ -10,12 +10,19 @@
     align-items: center;
     z-index: 1;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
-
+    position: relative;
 
     &__logo {
         color: $white;
         font-size: 38px;
-        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-family: "Philosopher-Bold";
         margin-bottom: 4px;
+    }
+
+    &__account {
+        position: absolute;
+        color: $white;
+        right: 20vw;
+        font-weight: bold;
     }
 }

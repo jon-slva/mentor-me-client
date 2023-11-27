@@ -6,11 +6,11 @@ import "./Header.scss"
 const Header = () => {
     return (
         <header className='header'>
-            <Link to="/login">Login</Link>
             <Link to="/">
                 <h2 className="header__logo">MentorMe</h2>
             </Link>
-            <Link to="/my-account">Account</Link>
+            <Link to="/login" className='header__account'>Account</Link>
+            {/* <Link to="/my-account">Account</Link> */}
         </header>
     )
 }
