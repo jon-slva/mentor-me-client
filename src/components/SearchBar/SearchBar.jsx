@@ -4,6 +4,8 @@ import axios from 'axios';
 import './SearchBar.scss';
 import dropShadow from '../../assets/Asset 1.png';
 // import { useNavigate, useLocation } from 'react-router-dom';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 
 
 const SearchBar = ({ setMarkers, setEvent, setDetails, markers, setResults }) => {

@@ -13,12 +13,38 @@ import SearchResults from './pages/SearchResults/SearchResults';
 import ConversationPage from './pages/ConversationPage/ConversationPage';
 
 
-
 const App = () => {
     const [markers, setMarkers] = useState([]);
     const [event, setEvent] = useState(null);
     const [details, setDetails] = useState(null);
+    console.log(event)
 
+    function markerTooltipRenderer(marker) {
+        console.log(marker)
+        return `${marker.name} ${marker.city}`;
+    }
+
+    const options = {
+        markerTooltipRenderer
+    };
+
+    function onClickMarker(marker, markerObject, event) {
+        setEvent({
+            type: "CLICK",
+            marker,
+            markerObjectID: markerObject.uuid,
+            pointerEventPosition: { x: event.clientX, y: event.clientY }
+        });
+        setDetails(markerTooltipRenderer(marker));
+    }
+
+    function onDefocus(previousFocus) {
+        setEvent({
+            type: "DEFOCUS",
+            previousFocus
+        });
+        setDetails(null);
+    }
 
     return (
         <div className='appContainer'>
@@ -27,12 +53,12 @@ const App = () => {
                 <div className='pageContainer'>
                     <Routes>
                         <Route path="/" element={<Home setMarkers={setMarkers} markers={markers} />} />
-                        <Route path="/search" element={<SearchResults setMarkers={setMarkers} markers={markers} />} />
+                        <Route path="/search" element={<SearchResults setMarkers={setMarkers} markers={markers} onClickMarker={onClickMarker} />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/signup" element={<SignUp />} />
                         <Route path="/my-account" element={<MyAccount />} />
                         {/* <Route path="/chat/:chatId" element={<ConversationPage />} /> */}
-                        <Route path="/mentor/:mentorId" element={<ConversationPage />} />
+                        <Route path="/mentor/:mentorId" element={<ConversationPage setMarkers={setMarkers} markers={markers} setEvent={setEvent} />} />
                         <Route path="/terms-conditions" />
                         <Route path="/privacy-policy" />
                         <Route path="/*" notFoundPage={<NotFoundPage />} />
@@ -44,6 +70,9 @@ const App = () => {
                     setDetails={setDetails}
                     details={details}
                     markers={markers}
+                    onClickMarker={onClickMarker}
+                    onDefocus={onDefocus}
+                    options={options}
                 />
             </BrowserRouter >
         </div>

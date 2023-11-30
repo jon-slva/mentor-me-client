@@ -1,28 +1,69 @@
 @import '../../styles/partials/variables';
+@import '../../styles/partials/mixins';
 
 .header {
-    height: 60px;
-    background-color: $earth-blue;
+    // height: 60px;
     width: 100%;
     pointer-events: auto;
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
-    z-index: 1;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
     position: relative;
 
+    @include desktop {
+        height: 60px;
+        background-color: $earth-blue;
+        width: 100%;
+        pointer-events: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+        position: relative;
+    }
+
     &__logo {
-        color: $white;
-        font-size: 38px;
-        font-family: "Philosopher-Bold";
-        margin-bottom: 4px;
+        display: none;
+
+        @include desktop {
+            display: block;
+            color: $white;
+            font-size: 38px;
+            font-family: "Philosopher-Bold";
+            margin-bottom: 4px;
+        }
     }
 
     &__account {
         position: absolute;
-        color: $white;
-        right: 20vw;
-        font-weight: bold;
+        right: 8px;
+        top: 8px;
+
+        @include desktop {
+            position: absolute;
+            color: $white;
+            right: 20vw;
+            font-weight: bold;
+        }
+
+        &--text {
+            display: none;
+
+            @include desktop {
+                display: unset;
+                top: 30px;
+            }
+        }
+
+        &--icon {
+            height: 50px;
+            filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(267deg) brightness(101%) contrast(104%);
+
+            @include desktop {
+                display: none;
+            }
+        }
     }
 }

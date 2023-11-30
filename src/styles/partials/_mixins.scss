@@ -1,5 +1,5 @@
 @import './variables';
-// @import './fonts';
+@import './fonts';
 
 // Media Queries
 @mixin tablet {
@@ -70,7 +70,7 @@
     color: $white;
     border-radius: 20px;
     margin-right: 8px;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
 }
@@ -98,7 +98,7 @@
 
 @mixin h1-tablet__desk {
     font-size: 33px;
-    line-height: 44px;
+    // line-height: 44px;
     @include font-bold();
 }
 
@@ -109,7 +109,7 @@
 }
 
 @mixin h3-tablet__desk {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 22px;
     @include font-bold();
 }
@@ -136,19 +136,19 @@
 }
 
 @mixin h1-mobile {
-    font-size: 1.5rem;
-    line-height: 2rem;
+    font-size: 24px;
+    line-height: 32px;
     @include font-bold();
 }
 
 @mixin h2-mobile {
-    font-size: 0.75rem;
+    font-size: 14px;
     line-height: 1.25rem;
     @include font-bold();
 }
 
 @mixin h3-mobile {
-    font-size: 0.8125rem;
+    font-size: 14px;
     line-height: 1.125rem;
     @include font-bold();
 }

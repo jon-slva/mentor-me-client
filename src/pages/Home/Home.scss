@@ -1,4 +1,5 @@
 @import '../../styles/partials/variables';
+@import '../../styles/partials/mixins';
 
 
 .home-container {
@@ -12,22 +13,45 @@
 .home {
     &__h1 {
         color: $white;
-        font-size: 110px;
-        margin: 40px 0 24px 0;
+        font-size: 84px;
+        margin: 260px 0 16px 0;
         text-shadow: 0 0 10px rgba(0, 0, 0, 1);
         position: relative;
         z-index: 1;
         letter-spacing: -0.3rem;
         font-family: 'Philosopher-Bold';
+        text-align: center;
+        // display: none;
+
+        @include desktop {
+            color: $white;
+            font-size: 110px;
+            margin: 40px 0 24px 0;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+            position: relative;
+            z-index: 1;
+            letter-spacing: -0.3rem;
+            font-family: 'Philosopher-Bold';
+        }
     }
 
     &__h2 {
         color: $white;
-        font-size: 32px;
+        @include h1-mobile;
         margin-bottom: 32px;
+        // margin-top: 32px;
         text-shadow: 0 0 8px rgba(0, 0, 0, 1);
         position: relative;
         z-index: 1;
+
+        @include desktop {
+            color: $white;
+            font-size: 32px;
+            margin-bottom: 32px;
+            text-shadow: 0 0 8px rgba(0, 0, 0, 1);
+            position: relative;
+            z-index: 1;
+        }
 
         &--link {
             color: $white;
@@ -42,27 +66,39 @@
     &__dropshadow-h1 {
         position: absolute;
         z-index: 0;
-        top: 100px;
+        top: 288px;
         width: 860px;
         height: 70px;
         opacity: 0.4;
+
+        @include desktop {
+            top: 100px;
+        }
     }
 
     &__dropshadow-h2 {
         position: absolute;
         z-index: 0;
-        top: 185px;
+        top: 357px;
         width: 760px;
         height: 60px;
         opacity: 0.3;
+
+        @include desktop {
+            top: 185px;
+        }
     }
 
     &__dropshadow {
         position: absolute;
         z-index: 0;
-        top: 264px;
-        width: 480px;
+        top: 448px;
+        width: 372px;
         height: 50px;
         opacity: 0.4;
+
+        @include desktop {
+            top: 264px;
+        }
     }
 }

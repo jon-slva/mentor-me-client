@@ -10,9 +10,13 @@
     border-bottom: solid $mercury;
     gap: 1rem;
     background-color: $white;
-    margin-top: 15%;
+    margin-top: 50%;
     border-radius: 0.25rem;
     padding: 0 16px;
+
+    @include desktop {
+        margin-top: 15%;
+    }
 }
 
 
