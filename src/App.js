@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import World from './components/World/World';
 import Header from './components/Header/Header';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
@@ -17,12 +17,14 @@ const App = () => {
     const [markers, setMarkers] = useState([]);
     const [event, setEvent] = useState(null);
     const [details, setDetails] = useState(null);
+    // const location = useLocation();
     console.log(event)
 
     function markerTooltipRenderer(marker) {
         console.log(marker)
         return `${marker.name} ${marker.city}`;
     }
+
 
     const options = {
         markerTooltipRenderer
@@ -49,7 +51,7 @@ const App = () => {
     return (
         <div className='appContainer'>
             <BrowserRouter>
-                <Header />
+                <Header setMarkers={setMarkers} />
                 <div className='pageContainer'>
                     <Routes>
                         <Route path="/" element={<Home setMarkers={setMarkers} markers={markers} />} />

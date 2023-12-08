@@ -7,6 +7,7 @@ const SignupForm = () => {
 	const [success, setSuccess] = useState(false);
 	const [error, setError] = useState(null);
 	const [formData, setFormData] = useState({});
+	const navigate = useNavigate();
 
 	const handleChange = (e) => {
 		const { name, value, type, checked } = e.target;
@@ -34,6 +35,9 @@ const SignupForm = () => {
 			setSuccess(true);
 			setError("");
 			alert("Signup successful!");
+
+			navigate('/')
+
 		} catch (error) {
 			setSuccess(false);
 			setError(error.response.data)
