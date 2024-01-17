@@ -56,6 +56,7 @@ const App = () => {
                     <Routes>
                         <Route path="/" element={<Home setMarkers={setMarkers} markers={markers} />} />
                         <Route path="/search" element={<SearchResults setMarkers={setMarkers} markers={markers} onClickMarker={onClickMarker} />} />
+                        <Route path="/search/:searchTerm" element={<SearchResults setMarkers={setMarkers} markers={markers} onClickMarker={onClickMarker} />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/signup" element={<SignUp />} />
                         <Route path="/my-account" element={<MyAccount />} />

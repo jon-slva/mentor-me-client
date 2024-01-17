@@ -7,11 +7,11 @@ import scIcon from '../../assets/soundcloud icon.svg';
 import ytIcon from '../../assets/youtube-icon.svg';
 import liIcon from '../../assets/linkedin-logo.svg';
 import linkIcon from '../../assets/link icon.svg';
+import './ConversationPage.scss'
 
 const BASE_URL = process.env.REACT_APP_API_URL;
 
 
-import './ConversationPage.scss'
 
 const ConversationPage = ({ setMarkers, setEvent, setDetails, details, markers }) => {
     const { mentorId } = useParams();

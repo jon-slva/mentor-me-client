@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import './SearchResults.scss';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import igIcon from '../../assets/ig-icon-logo.svg';
 import fbIcon from '../../assets/facebook-logo.svg';
 import scIcon from '../../assets/soundcloud icon.svg';
@@ -21,6 +21,8 @@ const SearchResults = ({ setMarkers, markers, onClickMarker }) => {
     const [randomRating, setRandomRating] = useState(0);
 
     const detailsCardRef = useRef(null);
+
+    const { searchTerm } = useParams();
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -59,8 +61,8 @@ const SearchResults = ({ setMarkers, markers, onClickMarker }) => {
 
     return (
         <main className="page-container">
-            <SearchBar setMarkers={setMarkers} markers={markers} setResults={setResults} />
-            {results && (
+            <SearchBar setMarkers={setMarkers} markers={markers} setResults={setResults} searchTerm={searchTerm} />
+            {results && (results.searchQuery.length >= 3) && (
                 <section className={`results ${expanded ? 'expanded' : ''}`}>
                     <div className="results__mobile" onClick={handleExpand}>
                         <img src={upArrow} alt="" className={`results__mobile-pullout ${expanded ? 'expanded' : ''}`} />
