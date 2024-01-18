@@ -16,13 +16,19 @@ const SearchBar = ({ setMarkers, setEvent, setDetails, markers, setResults, sear
     const handleKeyPress = (event) => {
         if (event.key === 'Enter') {
             fetchData();
-            // navigate(`/search?s=${encodeURIComponent(query)}`);
+            navigate(`/search?s=${encodeURIComponent(query)}`);
         }
+    };
+
+    const handleInputChange = (event) => {
+        setQuery(event.target.value);
     };
 
     const fetchData = async () => {
         try {
             const response = await axios.get(`http://localhost:8080/api/mentors?s=${encodeURIComponent(query)}`);
+            navigate(`/search?s=${encodeURIComponent(query)}`);
+            console.log('reload')
 
             const mentors = response.data.mentors;
 
@@ -56,9 +62,6 @@ const SearchBar = ({ setMarkers, setEvent, setDetails, markers, setResults, sear
     }, [query, navigate]);
 
 
-    const handleInputChange = (event) => {
-        setQuery(event.target.value);
-    };
 
     return (
         <>

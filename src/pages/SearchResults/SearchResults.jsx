@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import './SearchResults.scss';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import igIcon from '../../assets/ig-icon-logo.svg';
 import fbIcon from '../../assets/facebook-logo.svg';
 import scIcon from '../../assets/soundcloud icon.svg';
@@ -14,15 +14,17 @@ import upArrow from '../../assets/chevron-up.svg';
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
 
-const SearchResults = ({ setMarkers, markers, onClickMarker }) => {
+const SearchResults = ({ setMarkers, markers, onClickMarker, results, setResults, selectedMentor, setSelectedMentor }) => {
     const [expanded, setExpanded] = useState(false);
-    const [results, setResults] = useState(null);
-    const [selectedMentor, setSelectedMentor] = useState(null);
+    // const [results, setResults] = useState(null); // put in app
+    // const [selectedMentor, setSelectedMentor] = useState(null);// put in app
     const [randomRating, setRandomRating] = useState(0);
 
     const detailsCardRef = useRef(null);
 
-    const { searchTerm } = useParams();
+    const { search } = useLocation();
+    const s = search.split('=')[1]; // see if there is a way to get the search term out without splitting it
+    console.log(location)
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -61,7 +63,7 @@ const SearchResults = ({ setMarkers, markers, onClickMarker }) => {
 
     return (
         <main className="page-container">
-            <SearchBar setMarkers={setMarkers} markers={markers} setResults={setResults} searchTerm={searchTerm} />
+            <SearchBar setMarkers={setMarkers} markers={markers} setResults={setResults} searchTerm={s} />
             {results && (results.searchQuery.length >= 3) && (
                 <section className={`results ${expanded ? 'expanded' : ''}`}>
                     <div className="results__mobile" onClick={handleExpand}>
