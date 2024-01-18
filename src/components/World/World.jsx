@@ -10,42 +10,15 @@ import "tippy.js/animations/scale.css";
 import ReactTooltip from 'react-tooltip';
 
 
-function markerTooltipRenderer(marker) {
-    console.log(marker)
-    return `${marker.name} ${marker.city}`;
-}
 
-const options = {
-    markerTooltipRenderer
-};
 
-const World = ({ setMarkers, setEvent, setDetails, details, markers }) => {
+const World = ({ setMarkers, setEvent, setDetails, details, markers, onClickMarker, onDefocus, options }) => {
     const randomMarkers = defaultMarkers.map((marker) => ({
         ...marker,
         value: Math.floor(Math.random() * 100)
     }));
 
 
-    function onClickMarker(marker, markerObject, event) {
-        setEvent({
-            type: "CLICK",
-            marker,
-            markerObjectID: markerObject.uuid,
-            pointerEventPosition: { x: event.clientX, y: event.clientY }
-        });
-        setDetails(markerTooltipRenderer(marker));
-    }
-    function onDefocus(previousFocus) {
-        setEvent({
-            type: "DEFOCUS",
-            previousFocus
-        });
-        setDetails(null);
-    }
-
-    // if (!markers) {
-    //     <><h1>loading</h1></>
-    // }
 
     return (
         <>
@@ -90,6 +63,7 @@ const World = ({ setMarkers, setEvent, setDetails, details, markers }) => {
                     Remove marker
                 </button>
             </div> */}
+
             <ReactGlobe
                 height="100vh"
                 globeTexture={map}

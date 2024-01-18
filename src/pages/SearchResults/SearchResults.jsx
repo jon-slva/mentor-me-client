@@ -2,18 +2,29 @@ import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import './SearchResults.scss';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import igIcon from '../../assets/ig-icon-logo.svg';
 import fbIcon from '../../assets/facebook-logo.svg';
 import scIcon from '../../assets/soundcloud icon.svg';
 import ytIcon from '../../assets/youtube-icon.svg';
 import liIcon from '../../assets/linkedin-logo.svg';
 import linkIcon from '../../assets/link icon.svg';
+import upArrow from '../../assets/chevron-up.svg';
 
-const SearchResults = ({ setMarkers, markers }) => {
-    const [results, setResults] = useState(null);
-    const [selectedMentor, setSelectedMentor] = useState(null);
+import "tippy.js/dist/tippy.css";
+import "tippy.js/animations/scale.css";
+
+const SearchResults = ({ setMarkers, markers, onClickMarker, results, setResults, selectedMentor, setSelectedMentor }) => {
+    const [expanded, setExpanded] = useState(false);
+    // const [results, setResults] = useState(null); // put in app
+    // const [selectedMentor, setSelectedMentor] = useState(null);// put in app
+    const [randomRating, setRandomRating] = useState(0);
+
     const detailsCardRef = useRef(null);
+
+    const { search } = useLocation();
+    const s = search.split('=')[1]; // see if there is a way to get the search term out without splitting it
+    console.log(location)
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -34,15 +45,30 @@ const SearchResults = ({ setMarkers, markers }) => {
         return () => { };
     }, [results]);
 
+    useEffect(() => {
+        if (selectedMentor) {
+            const newRandomRating = Math.floor(Math.random() * 5) + 1;
+            setRandomRating(newRandomRating);
+        }
+    }, [selectedMentor]);
+
     const handleMentorClick = (mentor) => {
         setSelectedMentor(mentor);
+        // onClickMarker(mentor)
+    };
+
+    const handleExpand = () => {
+        setExpanded(!expanded);
     };
 
     return (
         <main className="page-container">
-            <SearchBar setMarkers={setMarkers} markers={markers} setResults={setResults} />
-            {results && (
-                <section className="results">
+            <SearchBar setMarkers={setMarkers} markers={markers} setResults={setResults} searchTerm={s} />
+            {results && (results.searchQuery.length >= 3) && (
+                <section className={`results ${expanded ? 'expanded' : ''}`}>
+                    <div className="results__mobile" onClick={handleExpand}>
+                        <img src={upArrow} alt="" className={`results__mobile-pullout ${expanded ? 'expanded' : ''}`} />
+                    </div>
                     <h3 className="results__header">Results for "{results.searchQuery}" </h3>
                     {results.mentors.map((mentor) => (
                         <article className={`mentor ${selectedMentor === mentor ? 'selected' : ''}`} key={mentor.id} onClick={() => handleMentorClick(mentor)}>
@@ -94,10 +120,10 @@ const SearchResults = ({ setMarkers, markers }) => {
                                 Mentees: 8
                             </p>
                             <p className="details-card__rating">
-                                4 / 5
+                                Rating: {randomRating} / 5
                             </p>
-                            <p>{selectedMentor.city}</p>
-                            <p>{selectedMentor.country}</p>
+                            <p className='details-card__subhead'>{selectedMentor.city}</p>
+                            <p className='details-card__subhead'>{selectedMentor.country}</p>
                         </div>
                     </div>
 

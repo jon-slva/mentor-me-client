@@ -1,6 +1,7 @@
 @use './styles/partials/reset' as *;
 @use './styles/partials/global' as *;
-@use './styles/partials/variables' as*;
+// @use './styles/partials/variables' as *;
+@import './styles/partials/mixins';
 
 
 #root {
@@ -9,12 +10,18 @@
 
 .appContainer {
     position: relative;
+    height: 100vh;
 
-    &:last-child {
-        height: 100dvh;
-        // overflow: hidden !important;
+    &div:last-child {
+        height: 80vh;
+
+        @include desktop {
+            height: 100dvh;
+
+        }
     }
 }
+
 
 .pageContainer {
     position: absolute;

@@ -29,7 +29,6 @@ Mentor Me is a full stack application that connects curious learners with mentor
 
 - React
 - Axios
-- React
 - Sass
 - ThreeJS
 
