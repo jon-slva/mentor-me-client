@@ -17,6 +17,8 @@ const App = () => {
     const [markers, setMarkers] = useState([]);
     const [event, setEvent] = useState(null);
     const [details, setDetails] = useState(null);
+    const [results, setResults] = useState(null); // put in app
+    const [selectedMentor, setSelectedMentor] = useState(null);// put in app
     // const location = useLocation();
     console.log(event)
 
@@ -38,6 +40,8 @@ const App = () => {
             pointerEventPosition: { x: event.clientX, y: event.clientY }
         });
         setDetails(markerTooltipRenderer(marker));
+        const mentorByMarker = results.mentors.find((mentor) => `${mentor.first_name} ${mentor.last_name}` === marker.name);
+        setSelectedMentor(mentorByMarker);
     }
 
     function onDefocus(previousFocus) {
@@ -55,7 +59,8 @@ const App = () => {
                 <div className='pageContainer'>
                     <Routes>
                         <Route path="/" element={<Home setMarkers={setMarkers} markers={markers} />} />
-                        <Route path="/search" element={<SearchResults setMarkers={setMarkers} markers={markers} onClickMarker={onClickMarker} />} />
+                        <Route path="/search" element={<SearchResults setMarkers={setMarkers} markers={markers} onClickMarker={onClickMarker} results={results} setResults={setResults} selectedMentor={selectedMentor} setSelectedMentor={setSelectedMentor} />} />
+                        <Route path="/search/:searchTerm" element={<SearchResults setMarkers={setMarkers} markers={markers} onClickMarker={onClickMarker} results={results} setResults={setResults} selectedMentor={selectedMentor} setSelectedMentor={setSelectedMentor} />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/signup" element={<SignUp />} />
                         <Route path="/my-account" element={<MyAccount />} />
